@@ -1,0 +1,54 @@
+theme = "rose_pine_moon"
+
+[editor]
+true-color = true
+line-number = "relative"
+cursorline = true
+auto-completion = true
+auto-format = true
+auto-info = true
+color-modes = true
+auto-pairs = true
+gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+middle-click-paste = true
+# Minimum severity to show a diagnostic after the end of a line
+end-of-line-diagnostics = "hint"
+rulers = [120]
+
+[editor.inline-diagnostics]
+cursor-line = "error" # Show inline diagnostics when the cursor is on the line
+other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line[editor.statusline]
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = ["version-control"]
+right = ["diagnostics", "selections", "position", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+enable = true
+display-messages = true
+auto-signature-help = false
+display-inlay-hints = true
+display-signature-help-docs = true
+snippets = true
+
+[keys.normal.space]
+i = ":toggle lsp.display-inlay-hints"
+
+[keys.normal]
+A-w = "move_next_sub_word_start"
+A-b = "move_prev_sub_word_start"
+A-e = "move_next_sub_word_end"
+A-E = "move_prev_sub_word_end"
+
+[editor.file-picker]
+hidden = false
