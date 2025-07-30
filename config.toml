@@ -41,14 +41,45 @@ display-inlay-hints = true
 display-signature-help-docs = true
 snippets = true
 
+[editor.soft-wrap]
+enable = true
+
+[keys.insert]
+esc = ["collapse_selection", "normal_mode"]
+
 [keys.normal.space]
 i = ":toggle lsp.display-inlay-hints"
 
 [keys.normal]
+esc = ["collapse_selection", "normal_mode"]
 A-w = "move_next_sub_word_start"
 A-b = "move_prev_sub_word_start"
 A-e = "move_next_sub_word_end"
 A-E = "move_prev_sub_word_end"
+A-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+A-t = [
+  ":write-all",
+  ":new",
+  ":insert-output togo",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all"
+]
+A-g = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
 
 [editor.file-picker]
 hidden = false
+
